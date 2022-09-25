@@ -8,10 +8,10 @@ sceneSetups:
   isActive: 0
   isSubScene: 0
 - path: Assets/Scenes/FightScene/TestCombat.unity
-  isLoaded: 1
+  isLoaded: 0
   isActive: 0
   isSubScene: 0
 - path: Assets/Scenes/FightScene/TestBoss.unity
-  isLoaded: 1
+  isLoaded: 0
   isActive: 0
   isSubScene: 0
