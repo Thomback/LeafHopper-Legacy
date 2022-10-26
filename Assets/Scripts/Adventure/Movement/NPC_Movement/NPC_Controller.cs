@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// NPC Movement and sprite flip
+/// </summary>
 public class NPC_Controller : MonoBehaviour
 {
-    private enum MovementType
+    private enum MovementType                   // Enum to quickly select the movement """IA""" of the npc
     {
         Immobile,
         ImmobileCurious,
@@ -13,27 +16,29 @@ public class NPC_Controller : MonoBehaviour
     }
 
     [SerializeField]
-    private float moveSpeed = 5;
+    private float moveSpeed = 5;                // Npc movement speed, default to 5
     [SerializeField]
-    private MovementType myMovementType = MovementType.ImmobileCurious;
+    private MovementType myMovementType = MovementType.ImmobileCurious; // Movement type used
     [SerializeField]
-    private Animator animSprite;
+    private Animator animSprite;                // General npc Animator
     [SerializeField]
-    private Animator animFlip;
+    private Animator animFlip;                  // npc flip only Animator
     [SerializeField]
-    private Rigidbody theRB;
+    private Rigidbody theRB;                    // npc's rigidbody reference
 
     [HideInInspector]
-    public bool isLastDirectionRight = true;
+    public bool isLastDirectionRight = true;    // Check which direction faces ma boy
     [HideInInspector]
-    public bool canMove = true;
+    public bool canMove = true;                 // Used to lock npc movement
     private Vector2 moveInput;
     private float patternTimer, patternAleaModifier;
     private int patternStep = 0;
     private Transform initialTransform;
 
 
-
+    /// <summary>
+    /// On Start, get some component references user forgot to link in editor
+    /// </summary>
     void Start()
     {
         if(theRB == null)
@@ -44,6 +49,9 @@ public class NPC_Controller : MonoBehaviour
         isLastDirectionRight = true;
     }
 
+    /// <summary>
+    /// On each frame, move the npc according to its movementType strategy
+    /// </summary>
     void Update()
     {
         // Pattern manager
@@ -94,7 +102,8 @@ public class NPC_Controller : MonoBehaviour
             }
         }
 
-        moveInput.Normalize();
+        moveInput.Normalize();                          // Normalize the movement so the movement is not faster in diagonal
+
         // Character flip
         if (isLastDirectionRight && moveInput.x < 0)
         {

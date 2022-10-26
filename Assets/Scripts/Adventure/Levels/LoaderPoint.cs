@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Class to place on level entrance/exit to load next zone
+/// </summary>
 public class LoaderPoint : MonoBehaviour
 {
     public LoaderDirection myDirection = LoaderDirection.East;

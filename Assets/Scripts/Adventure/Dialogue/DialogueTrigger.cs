@@ -2,24 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class to place on each NPC to control how they behave to player and which sentences to display in dialog
+/// </summary>
 public class DialogueTrigger : MonoBehaviour
 {
     [SerializeField]
-    private bool willTurnToPlayerWhenNearby = true;
+    private bool willTurnToPlayerWhenNearby = true;     // If true, npc will react to player if nearby
     [SerializeField]
-    private bool willTurnToPlayerWhenTalkedTo = true;
+    private bool willTurnToPlayerWhenTalkedTo = true;   // If true, npc will turn to player when talked to
     [SerializeField]
-    private Animator animFlip;
+    private Animator animFlip;                          // Animator used to control the npc flip animation
     [SerializeField]
-    private NPC_Controller myController;
+    private NPC_Controller myController;                // NPC movement controller reference
     [SerializeField]
-    private DialogueManager myDialogueManager;
+    private DialogueManager myDialogueManager;          // DialogueManager reference
     [SerializeField]
-    private Dialogue myDialogue;
+    private Dialogue myDialogue;                        // Dialogue in sentences form of the NPC
 
-    private bool readyToTalk = false;
-    private Transform playerTransform;
+    private bool readyToTalk = false;                   // Used to check if npc can be interacted with
+    private Transform playerTransform;                  // Used to check current player transform
     
+    /// <summary>
+    /// In start, initialize some components not referenced in editor
+    /// </summary>
     void Start()
     {
         if(animFlip == null)
@@ -39,6 +45,10 @@ public class DialogueTrigger : MonoBehaviour
         playerTransform = GameObject.FindGameObjectsWithTag("Player")[0].transform;
     }
 
+    /// <summary>
+    /// If player collides with npc, npc is ready to talk
+    /// </summary>
+    /// <param name="collision">Object collision</param>
     private void OnTriggerEnter(Collider collision)
     {
         if(collision.gameObject.tag == "Player")
@@ -47,6 +57,10 @@ public class DialogueTrigger : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// If player exit collision with npc, npc no talking >:(
+    /// </summary>
+    /// <param name="collision">Object collision</param>
     private void OnTriggerExit(Collider collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -55,6 +69,12 @@ public class DialogueTrigger : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// On each frame, get the Fire1 buttonUp trigger.
+    /// If npc is ready to talk, flip it to face player if willTurnToPlayerWhenTalkedTo is true,
+    /// then start the dialogue using myDialogue variable.
+    /// On each frame, also tries to turn to player if he is nearby and willTurnToPlayerWhenNearby is true.
+    /// </summary>
     private void Update()
     {
         // Trigger talk
@@ -87,6 +107,9 @@ public class DialogueTrigger : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Private function used to flip npc sprite to face player
+    /// </summary>
     private void FlipFacingPlayer()
     {
         if(myController.isLastDirectionRight && playerTransform.position.x <= transform.position.x)

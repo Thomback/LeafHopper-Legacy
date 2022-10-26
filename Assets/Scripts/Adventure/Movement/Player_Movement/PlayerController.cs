@@ -2,26 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Main script used for player movement
+/// </summary>
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
-    private Rigidbody theRB;
+    private Rigidbody theRB;                // Reference to player rigidbody
     [SerializeField]
-    private float moveSpeed, jumpForce;
+    private float moveSpeed, jumpForce;     // Float multipliers for moveSpeed and jumpForce
     [SerializeField]
-    private LayerMask whatIsGround;
+    private LayerMask whatIsGround;         // What LayerMask is considered Ground (mostly for animation stuff)
     [SerializeField]
-    private Transform groundPoint;
+    private Transform groundPoint;          // GroudPoint of player (To check What is ground layerMask)
     [SerializeField]
-    private Animator animSprite;
+    private Animator animSprite;            // Animator for player sprite animations
     [SerializeField]
-    private Animator animFlip;
+    private Animator animFlip;              // Animator for sprite flip only
     [SerializeField]
-    private float jumpBufferTime = 0.1f;
+    private float jumpBufferTime = 0.1f;    // Jump buffer when landing (to smoothly bunny hop)
     [SerializeField]
-    private ParticleSystem footDust;
+    private ParticleSystem footDust;        // Particle used for foot dust
     [SerializeField]
-    private float footDustMaxRate = 10;
+    private float footDustMaxRate = 10;     // Emission rate for foot dust
 
     private ParticleSystem.EmissionModule footDustEmission;
     private Vector2 moveInput;
@@ -29,9 +32,12 @@ public class PlayerController : MonoBehaviour
     private bool wasGrounded = true;
     private bool isLastDirectionRight = true;
     private float jumpBuffer = -1;
-    private int jumpDirection = 0;
-    private bool canMove = true;
+    private int jumpDirection = 0;          // 1 = up       0 = neutral         -1 = down
+    private bool canMove = true;            // Used to lock player movement
 
+    /// <summary>
+    /// On Awake, multiply gravity by 3 because it feels good (dirty way, find better way).
+    /// </summary>
     private void Awake()
     {
         Physics.gravity *= 3;
@@ -47,7 +53,7 @@ public class PlayerController : MonoBehaviour
             // Input getters
             moveInput.x = Input.GetAxisRaw("Horizontal");
             moveInput.y = Input.GetAxisRaw("Vertical");
-            moveInput.Normalize();
+            moveInput.Normalize();                      // Normalize movement vector so it's not faster diagonally
         }
 
 
