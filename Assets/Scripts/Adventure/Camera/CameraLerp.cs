@@ -2,19 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class to attach to gameManager, used to lerp the camera movement between 2 points
+/// </summary>
 public class CameraLerp : MonoBehaviour
 {
-    public Cinemachine.CinemachineVirtualCamera mainCamera;
+    public Cinemachine.CinemachineVirtualCamera mainCamera; // Reference to the main Cinemachine camera
     [SerializeField]
-    private Transform cameraFollow;
+    private Transform cameraFollow;                         // Default camera location 
     [SerializeField]
-    private float lerpSpeed = .5f;
+    private float lerpSpeed = .5f;                          // Speed of camera location lerping
 
-    private Vector3 finish;
+    private Vector3 finish;                                 // Private Vector3 of final location
 
-    private bool isLerping;
+    private bool isLerping;                                 // Private bool to check if lerping is enabled
 
-
+    /// <summary>
+    /// If missing component, tries to find them on Start
+    /// </summary>
     void Start()
     {
         if(mainCamera == null)
@@ -27,6 +32,10 @@ public class CameraLerp : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// On each frame, if the camera is in lerping mode, update its location to lerp to final location.
+    /// When 0.01 unit distance from destination, stop lerping and snap position to final location.
+    /// </summary>
     void Update()
     {
         if (isLerping)
@@ -40,7 +49,11 @@ public class CameraLerp : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Public function to call to start lerping and set final location and lookat
+    /// </summary>
+    /// <param name="finalFollow">Desired final location</param>
+    /// <param name="finalLookAt">Desired final lookAt reference</param>
     public void CameraLerping(Vector3 finalFollow, Transform finalLookAt)
     {
         isLerping = true;
