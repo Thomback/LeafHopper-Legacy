@@ -378,3 +378,23 @@ C# parse time         : 164ms
 candidates check time : 36ms
 console write time    : 0ms
 
+[api-updater (non-obsolete-error-filter)] 03/11/2022 10:12:50 : Starting C:/Users/Bureau/Desktop/ProjetARCH/projets_unity/2020.3.37f1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 1145,6079ms
+moved types parse time: 48ms
+candidates parse time : 1ms
+C# parse time         : 318ms
+candidates check time : 22ms
+console write time    : 0ms
+
+[api-updater (non-obsolete-error-filter)] 03/11/2022 10:12:56 : Starting C:/Users/Bureau/Desktop/ProjetARCH/projets_unity/2020.3.37f1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 76,0173ms
+moved types parse time: 54ms
+candidates parse time : 2ms
+C# parse time         : 165ms
+candidates check time : 24ms
+console write time    : 0ms
+

@@ -63,14 +63,14 @@
     <Compile Include="Assets\Scripts\Combat\battleSystem.cs" />
     <Compile Include="Assets\Scripts\General\DontDestroyOnLoad.cs" />
     <Compile Include="Assets\Scripts\Adventure\Interactions\NonPlayableCharacterInteraction.cs" />
+    <Compile Include="Assets\Scripts\Combat\unit.cs" />
     <Compile Include="Assets\Scripts\Adventure\Dialogue\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\Adventure\Movement\NPC_Movement\NPC_Controller.cs" />
+    <Compile Include="Assets\Scripts\Combat\battleHud.cs" />
     <Compile Include="Assets\Scripts\Adventure\Dialogue\DialogueTrigger.cs" />
     <Compile Include="Assets\Scripts\Adventure\Levels\LevelLoaderManager.cs" />
     <Compile Include="Assets\Scripts\Adventure\Movement\Player_Movement\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Adventure\Levels\LevelLoader.cs" />
-    <Compile Include="Assets\Scripts\Combat\units.cs" />
-    <Compile Include="Assets\Scripts\Combat\battleHud.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -2026,7 +2026,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentBattleState: 0
-  nbEnemy: 3
+  nbPlayer: 3
+  nbEnemy: 2
   playerPrefab1: {fileID: 8929820897159056307, guid: b57a3cb1a5a5d3f459311561e3850e5d, type: 3}
   playerPrefab2: {fileID: 8929820897159056307, guid: b57a3cb1a5a5d3f459311561e3850e5d, type: 3}
   playerPrefab3: {fileID: 8929820897159056307, guid: b57a3cb1a5a5d3f459311561e3850e5d, type: 3}
@@ -2044,11 +2045,13 @@ MonoBehaviour:
   enemyBattleStation4: {fileID: 1438944967}
   enemyBattleStation5: {fileID: 1802641636}
   playerGOList: []
-  playerUnitsList: []
+  playerUnitList: []
   playerHudsList: []
   enemyGOList: []
-  enemyUnitsList: []
+  enemyUnitList: []
   enemyHudsList: []
+  turnOrderGOList: []
+  currentTurnOrder: 0
 --- !u!1001 &1583947700
 PrefabInstance:
   m_ObjectHideFlags: 0
