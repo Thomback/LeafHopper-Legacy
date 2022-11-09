@@ -59,7 +59,6 @@
     <Compile Include="Assets\Scripts\Adventure\Levels\LoaderPoint.cs" />
     <Compile Include="Assets\Scripts\Adventure\Camera\CameraLerp.cs" />
     <Compile Include="Assets\Scripts\Adventure\Dialogue\Dialogue.cs" />
-    <Compile Include="Assets\Scripts\Combat\tryButton.cs" />
     <Compile Include="Assets\Scripts\Combat\battleSystem.cs" />
     <Compile Include="Assets\Scripts\General\DontDestroyOnLoad.cs" />
     <Compile Include="Assets\Scripts\Adventure\Interactions\NonPlayableCharacterInteraction.cs" />
@@ -71,6 +70,9 @@
     <Compile Include="Assets\Scripts\Adventure\Levels\LevelLoaderManager.cs" />
     <Compile Include="Assets\Scripts\Adventure\Movement\Player_Movement\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Adventure\Levels\LevelLoader.cs" />
+    <Compile Include="Assets\Scripts\Combat\hero.cs" />
+    <Compile Include="Assets\Scripts\Combat\Heroes\Renardo.cs" />
+    <Compile Include="Assets\Scripts\Combat\Heroes\Opossumo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
