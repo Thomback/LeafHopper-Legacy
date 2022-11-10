@@ -8,7 +8,8 @@ public enum unitType { GENTIL, MECHANT }
 public class unit : MonoBehaviour
 {
     public unitType thisUnitType;
-    public GameObject selfGO;
+    [SerializeField]
+    private GameObject selfGO;
     public string unitName;
     public int unitLevel;
 
@@ -17,6 +18,11 @@ public class unit : MonoBehaviour
 
     public int maxHP;
     public int currentHP;
+
+    public GameObject getSelfGO()
+    {
+        return selfGO;
+    }
 
     //Test si l'unit a survécu
     public bool isAlive()

@@ -412,11 +412,15 @@ public class battleSystem : MonoBehaviour
         if (playerTSU == actionStep.SKILLRESOLVE)
         {
             Debug.Log("Bonjour! Tu as lancé la ctps!");
+            if (currentAction == UnitSkills.ATKMONO)
+                enemyUnitList[skillTarget].takeDamage(turnOrderGOList[currentTurnOrder].GetComponent<hero>().skill1(playerTSU)); 
             return;
         }
         if (playerTSU == actionStep.FURESOLVE)
         {
             Debug.Log("Aurevoir! Tu as lancé le FU!");
+            if (currentAction == UnitSkills.ATKMONO)
+                enemyUnitList[followupTarget].takeDamage(playerGOList[followupCaster].GetComponent<hero>().skill1(playerTSU));
             return;
         }
 
@@ -432,11 +436,6 @@ public class battleSystem : MonoBehaviour
         followupCaster = -1;
         followupTarget = -1;
         newTurn();
-    }
-
-    public void btnTestPolymorphism()
-    {
-        turnOrderGOList[currentTurnOrder].GetComponent<hero>().skill1();
     }
 
     /*

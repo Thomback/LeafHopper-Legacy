@@ -1,11 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class hero : MonoBehaviour
 {
-    public virtual void skill1()
+    [SerializeField]
+    private GameObject selfGO;
+    
+    public unit getSelfUnit()
+    {
+        return selfGO.GetComponent<unit>();
+    }
+
+    public virtual int skill1(actionStep playerTSU)
     {
         Debug.Log("Skill 1 de base.");
+        return 0;
     }
 }
